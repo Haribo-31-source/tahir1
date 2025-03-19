@@ -147,7 +147,7 @@ export default async function Page() {
               width: "100%",
             }}
           >
-            PDF'ler
+            PDFler
           </p>
           <p
             style={{
@@ -158,7 +158,7 @@ export default async function Page() {
               width: "100%",
             }}
           >
-            Konuyu akılda kalıcı hale getiren PDF'ler...
+            Konuyu akılda kalıcı hale getiren PDFler...
           </p>
         </div>
       </aside>
@@ -168,6 +168,6 @@ export default async function Page() {
   
 }
 
-async function delay(ms: number) {
+async function _delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
