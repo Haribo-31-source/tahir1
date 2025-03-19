@@ -168,6 +168,7 @@ export default async function Page() {
   
 }
 
-async function _delay(ms: number) {
+// eslint-disable-next-line react/no-unescaped-entities
+async function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
