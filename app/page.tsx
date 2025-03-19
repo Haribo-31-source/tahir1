@@ -168,7 +168,7 @@ export default async function Page() {
   
 }
 
-// eslint-disable-next-line react/no-unescaped-entities
+/* eslint-disable @typescript-eslint/no-unused-vars */
 async function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
