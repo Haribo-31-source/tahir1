@@ -23,6 +23,33 @@ model s9{
   description String
 }
 
+model s10{
+  id Int @id @default(autoincrement())
+  category Category
+  name String
+  views Int @default(0)
+  createdAt DateTime @default(now())
+  imageUrl String
+  description String
+}
+model s11{
+  id Int @id @default(autoincrement())
+  category Category
+  name String
+  views Int @default(0)
+  createdAt DateTime @default(now())
+  imageUrl String
+  description String
+}
+model s12{
+  id Int @id @default(autoincrement())
+  category Category
+  name String
+  views Int @default(0)
+  createdAt DateTime @default(now())
+  imageUrl String
+  description String
+}
 enum Category {
   PDF
   NOTE

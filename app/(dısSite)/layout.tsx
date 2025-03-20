@@ -1,5 +1,5 @@
 
-import "./styles/globals.css";
+import "../styles/globals.css";
 import İmage from "next/image";
 
 export default function RootLayout({
@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body>
-        <header>
+        <header id="1">
           <p id="site">TAHİR BİYOLOJİ</p>
           <nav>
             <p>9.Sınıf</p>
@@ -37,7 +37,7 @@ export default function RootLayout({
         }}>Bu Web Sitesi Responsive Olarak Oluşturulmuştur.</p>
       </footer>
 
-        <main>{children}</main>
+        <main id="a">{children}</main>
       </body>
     </html>
   );
