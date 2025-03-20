@@ -1,4 +1,4 @@
-import { newNote } from "../data/notYukle";
+
 import styles from './page.module.css'; // CSS module import
 
 export default function Page() {

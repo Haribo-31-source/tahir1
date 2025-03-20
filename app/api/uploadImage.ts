@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { IncomingForm, Fields, Files, File } from 'formidable';
-import fs from 'fs';
 import path from 'path';
 import { newNote } from '../data/notYukle';
 
