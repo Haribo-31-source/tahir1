@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { Category } from "@prisma/client";
+const _category: Category = Category.NOTE; // Enum kullanıyorsan böyle olmalı
 
 
 
@@ -87,5 +88,5 @@ export default function TopNotesPage() {
       </div>
     </div>
   );
-
+return _category;
 }
