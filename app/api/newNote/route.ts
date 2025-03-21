@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
       const filePath = join(process.cwd(), "public", file.name);
       await writeFile(filePath, buffer);
       
-      imageUrl = `/${file.name}`; // Veritabanına kaydedilecek URL
+      imageUrl = `/uploads/${file.name}`; // Veritabanına kaydedilecek URL
     }
 
     // Hangi sınıfa kayıt yapacağını belirle
@@ -38,7 +38,32 @@ export async function POST(req: NextRequest) {
           imageUrl: imageUrl, // Veritabanına kaydedilen resim URL'si
         },
       });
-    }
+    }else     if (sinif === "s10") {
+      await db.s10.create({
+        data: {
+          name: FormNote,
+          category: FormCategory,
+          description: FormDescription,
+          imageUrl: imageUrl, // Veritabanına kaydedilen resim URL'si
+        },
+      });
+    }else    if (sinif === "s11") {
+      await db.s11.create({
+        data: {
+          name: FormNote,
+          category: FormCategory,
+          description: FormDescription,
+          imageUrl: imageUrl, // Veritabanına kaydedilen resim URL'si
+        },});
+      }else    if (sinif === "s12") {
+        await db.s12.create({
+          data: {
+            name: FormNote,
+            category: FormCategory,
+            description: FormDescription,
+            imageUrl: imageUrl, // Veritabanına kaydedilen resim URL'si
+          },});
+        }
 
     return NextResponse.json({ success: true, message: "Not başarıyla yüklendi!" });
   } catch (error) {

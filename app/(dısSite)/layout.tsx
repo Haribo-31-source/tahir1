@@ -1,6 +1,7 @@
 
 import "../styles/globals.css";
 import İmage from "next/image";
+import Link from "next/link";
 
 export default function RootLayout({
   children,
@@ -13,7 +14,8 @@ export default function RootLayout({
         <header id="1">
           <p id="site">TAHİR BİYOLOJİ</p>
           <nav>
-            <p>9.Sınıf</p>
+            <Link href={"/s9"} style={{textDecoration: "none", color: "black"}}><p>9.Sınıf</p></Link>
+
             <p>10.Sınıf</p>
             <p>11.Sınıf</p>
             <p>12.Sınıf</p>

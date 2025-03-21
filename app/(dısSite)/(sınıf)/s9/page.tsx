@@ -5,6 +5,8 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { Category } from "@prisma/client";
+const category: Category = Category.NOTE; // Enum kullanıyorsan böyle olmalı
+
 
 interface Note {
   id: number;
@@ -60,7 +62,7 @@ export default function TopNotesPage() {
               <Link href={`/s9/Notlar/${note.id}`} className="no-underline text-black">
                 {note.imageUrl && (
                   <Image 
-                    src={`/uploads/${note.imageUrl}`}
+                    src={`/uploads${note.imageUrl}`}
                     alt={note.name}
                     className={styles.noteImage}
                     width={300}

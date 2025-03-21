@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 export default function Page() {
   const [image] = useState<File | null>(null);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
 
@@ -27,6 +27,7 @@ export default function Page() {
   };
 
   return (
+    <>
     <form action="/api/newNote" method="POST" encType="multipart/form-data" className={`${styles.form} responsive-form`}>
       <input type="text" name="name" placeholder="Not Adı" className={`${styles.input} responsive-input`} />
       <select name="category" id="category" className={`${styles.select} responsive-select`}>
@@ -45,7 +46,6 @@ export default function Page() {
       </select>
       <button type="submit" className={`${styles.button} responsive-button`}>Submit</button>
     </form>
+    </>
   );
-
-  return handleSubmit;
 }
