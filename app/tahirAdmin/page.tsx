@@ -6,25 +6,26 @@ import styles from "./page.module.css";
 export default function Page() {
   const [image] = useState<File | null>(null);
 
-  async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-
+  
     if (image) {
       formData.append("imageUrl", image.name); // Gerçek dosya yükleme eklenmeli
     }
-
+  
     const response = await fetch("/api/newNote", {
       method: "POST",
       body: formData,
     });
-
+  
     if (!response.ok) {
       console.error("Hata:", await response.text());
     } else {
       alert("Not başarıyla eklendi!");
     }
   };
+  
 
   return (
     <>
