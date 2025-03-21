@@ -10,8 +10,7 @@ export default async function adminApi(req: NextApiRequest, res: NextApiResponse
         { orderBy: { createdAt: "desc" }, take: 6 }
       );
       res.status(200).json(notes);
-    } catch (log) {
-      res.status(500).json({ error: 'Internal Server Error' });
+    } catch {
     }
   } else {
     res.status(405).json({ error: 'Method Not Allowed' });

@@ -49,4 +49,5 @@ export default function Page() {
     </form>
     </>
   );
+  return handleSubmit;
 }

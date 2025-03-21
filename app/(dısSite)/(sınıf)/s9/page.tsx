@@ -5,7 +5,6 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { Category } from "@prisma/client";
-const _category: Category = Category.NOTE; // Enum kullanıyorsan böyle olmalı
 
 
 
