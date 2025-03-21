@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
 import Image from "next/image";
+import { Category } from "@prisma/client";
 
 interface Note {
   id: number;
@@ -11,7 +12,7 @@ interface Note {
   content: string;
   imageUrl: string;
   name: string;
-  category: string;
+  category: Category;
   description: string;
   view: number;
 }
