@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
+import Image from "next/image";
 
 export default function TopNotesPage() {
   const [topNotes, setTopNotes] = useState<any[]>([]);
@@ -35,46 +36,36 @@ export default function TopNotesPage() {
   }, []);
 
   return (
-    <div className={`${styles.container} bg-gray-100 min-h-screen p-4`}>
-      <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 text-black">
-        Top 6 Notes
-      </h1>
-      {error && <p className="text-red-500 text-center">{error}</p>}
+    <div className={styles.container} id="top-notes-page">
+      <h1 className={styles.title}>Top 6 Notes</h1>
+      {error && <p className={styles.error}>{error}</p>}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className={styles.notesGrid}>
         {topNotes.length > 0 ? (
           topNotes.map((note) => (
-            <div
-              key={note.id}
-              className="bg-white shadow-lg rounded-lg p-4 transition-transform duration-300 hover:scale-105"
-            >
-              <Link
-                href={`/s9/Notlar/${note.id}`}
-                className="block no-underline"
-              >
-                {/* Resim Gösterimi */}
+            <div key={note.id} className={styles.noteCard}>
+              <Link href={`/s9/Notlar/${note.id}`} className="no-underline text-black">
                 {note.imageUrl && (
-                  <img
+                  <Image 
                     src={`/uploads/${note.imageUrl}`}
                     alt={note.name}
-                    className="w-full h-48 object-cover rounded"
+                    className={styles.noteImage}
+                    width={300}
+                    height={150}
                   />
                 )}
-
-                {/* Başlık ve Açıklama */}
-                <h2 className="text-xl font-semibold text-black mt-3">
-                  {note.name}
-                </h2>
-                <p className="text-gray-600 text-sm mt-1">
-                  Category: {note.category}
-                </p>
-                <p className="text-gray-700 mt-2">{note.description}</p>
-                <p className="text-xs text-gray-500 mt-2">Views: {note.view}</p>
+                <div className={styles.noteContent}>
+                  <h2 className={styles.noteTitle}>{note.name}</h2>
+                  <p className={styles.noteCategory}>Category: {note.category}</p>
+                  <p className={styles.noteDescription}>{note.description}</p>
+                  <p className={styles.noteViews}>Views: {note.view}</p>
+                </div>
+                <div className={styles.noteHoverEffect}></div>
               </Link>
             </div>
           ))
         ) : (
-          <p className="text-center text-gray-600 col-span-full">
+          <p className={styles.loadingMessage}>
             Top 6 notes are loading or there was an issue fetching them.
           </p>
         )}
