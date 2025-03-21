@@ -4,7 +4,7 @@ import { useState } from "react";
 import styles from "./page.module.css";
 
 export default function Page() {
-  const [image, setImage] = useState<File | null>(null);
+  const [image] = useState<File | null>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -46,4 +46,6 @@ export default function Page() {
       <button type="submit" className={`${styles.button} responsive-button`}>Submit</button>
     </form>
   );
+
+  return handleSubmit;
 }

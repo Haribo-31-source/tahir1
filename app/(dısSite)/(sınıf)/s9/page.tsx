@@ -5,8 +5,20 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import Image from "next/image";
 
+interface Note {
+  id: number;
+  title: string;
+  content: string;
+  imageUrl: string;
+  name: string;
+  category: string;
+  description: string;
+  view: number;
+}
+
+
 export default function TopNotesPage() {
-  const [topNotes, setTopNotes] = useState<any[]>([]);
+  const [topNotes, setTopNotes] = useState<Note[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
