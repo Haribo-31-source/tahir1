@@ -1,10 +1,9 @@
-import { Category, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
 const db = new PrismaClient();
 
 export async function newNote(formData: FormData) {
     const FormNote = formData.get("name") as string;
-    const FormCategory = formData.get("category") as Category;
     const FormDescription = formData.get("description") as string;
     const FormImageUrl = formData.get("imageUrl") as string;
     const sinifSelect = formData.get("sinif") as string;
@@ -17,7 +16,7 @@ export async function newNote(formData: FormData) {
         await db.s9.create({
             data: {
                 name: FormNote,
-                category: FormCategory,
+                category: "NOTE",
                 description: FormDescription,
                 imageUrl: FormImageUrl,
             },
@@ -26,7 +25,7 @@ export async function newNote(formData: FormData) {
         await db.s10.create({
             data: {
                 name: FormNote,
-                category: FormCategory,
+                category: "NOTE",
                 description: FormDescription,
                 imageUrl: FormImageUrl,
             },
@@ -35,7 +34,7 @@ export async function newNote(formData: FormData) {
         await db.s11.create({
             data: {
                 name: FormNote,
-                category: FormCategory,
+                category: "NOTE",
                 description: FormDescription,
                 imageUrl: FormImageUrl,
             },
@@ -44,7 +43,7 @@ export async function newNote(formData: FormData) {
             await db.s12.create({
                 data: {
                     name: FormNote,
-                    category: FormCategory,
+                    category: "NOTE",
                     description: FormDescription,
                     imageUrl: FormImageUrl,
                 },
