@@ -42,9 +42,6 @@ export default function Page() {
         setContent(data.description || ""); // 'description' içerik olarak kullanılabilir
         setCategory(data.category || ""); // 'category' alanını alıyoruz
   
-      } catch (err: any) {
-        console.error("Hata:", err.message);
-        setError(err.message);
       } finally {
         setLoading(false);
       }

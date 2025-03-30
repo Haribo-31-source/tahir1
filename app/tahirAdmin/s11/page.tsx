@@ -81,8 +81,6 @@ export default function Page() {
         const data = await res.json();
         if (data.error) throw new Error(data.error);
         alert("Not başarıyla güncellendi!");
-      } catch (err: any) {
-        setError(err.message);
       } finally {
         setLoading(false);
       }
