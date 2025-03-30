@@ -26,8 +26,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return;
     }
 
-    const imageUrl = `/public/${path.basename((files.image as File).filepath)}`;
-    const noteData = { ...fields, imageUrl }; // fields nesnesini bir JavaScript nesnesine dönüştürüp imageUrl özelliğini ekleyin
+    const imageUrl = `/public/uploads/${path.basename((files.image as File).filepath)}`;
+    const noteData = new FormData();
+    Object.entries(fields).forEach(([key, value]) => {
+      if (typeof value === 'string') {
+        noteData.append(key, value);
+      }
+    });
+    noteData.append('imageUrl', imageUrl); // imageUrl özelliğini ekleyin
     // Veritabanına kaydetme işlemi burada yapılacak
     await newNote(noteData);
 

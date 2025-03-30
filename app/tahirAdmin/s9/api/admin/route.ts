@@ -1,8 +1,8 @@
-import { getNoteAdmin } from "@/app/data/notGetir";
+import { getNotes9 } from "@/app/data/notGetir";
 
 export async function GET() {
   try {
-    const enYeniNotlar = await getNoteAdmin(); // Verileri al
+    const enYeniNotlar = await getNotes9(); // Verileri al
     return new Response(JSON.stringify(enYeniNotlar), { status: 200 });
   } catch (error) {
     console.error("Hata:", error);
