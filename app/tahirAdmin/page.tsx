@@ -20,7 +20,6 @@ export default function Page() {
     if (!response.ok) {
       console.error("Hata:", await response.text());
     } else {
-      const newNote = await response.json(); // Yeni eklenen notu al // State'i güncelle
       alert("Not başarıyla eklendi!");
     }
   };
