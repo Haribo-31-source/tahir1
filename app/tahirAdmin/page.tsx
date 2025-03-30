@@ -10,11 +10,9 @@ export default function Page() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
   
-    if (image) {
-      formData.append("imageUrl", image.name); // Gerçek dosya yükleme eklenmeli
-    }
+    if (image) formData.append("imageUrl", image.name);
   
-    const response = await fetch("/api/newNote", {
+    const response = await fetch("api/newNote", {
       method: "POST",
       body: formData,
     });
@@ -22,6 +20,7 @@ export default function Page() {
     if (!response.ok) {
       console.error("Hata:", await response.text());
     } else {
+      const newNote = await response.json(); // Yeni eklenen notu al // State'i güncelle
       alert("Not başarıyla eklendi!");
     }
   };
@@ -29,25 +28,30 @@ export default function Page() {
 
   return (
     <>
-    <form action="/api/newNote" method="POST" encType="multipart/form-data" className={`${styles.form} responsive-form`}>
-      <input type="text" name="name" placeholder="Not Adı" className={`${styles.input} responsive-input`} />
-      <select name="category" id="category" className={`${styles.select} responsive-select`}>
-        <option value="">Kategori Seçin</option>
-        <option value="PDF">PDF</option>
-        <option value="NOTE">NOTE</option>
-      </select>
-      <input type="text" name="description" placeholder="Açıklama" className={`${styles.input} responsive-input`} />
-      <input type="file" name="image" placeholder="Resim Yükle" className={`${styles.input} responsive-input`} />
-      <select name="sinif" id="sinif" className={`${styles.select} responsive-select`}>
-        <option value="">Sınıf Düzeyi Seçin</option>
-        <option value="s9">S9</option>
-        <option value="s10">S10</option>
-        <option value="s11">S11</option>
-        <option value="s12">S12</option>
-      </select>
-      <button type="submit" className={`${styles.button} responsive-button`}>Submit</button>
-    </form>
+      <form
+        onSubmit={handleSubmit}
+        className={`${styles.form} responsive-form`}
+        encType="multipart/form-data"
+      >
+        <input type="text" name="name" placeholder="Not Adı" className={styles.input} />
+        <select name="category" className={styles.select}>
+          <option value="">Kategori Seçin</option>
+          <option value="PDF">PDF</option>
+          <option value="NOTE">NOTE</option>
+        </select>
+        <input type="text" name="description" placeholder="Açıklama" className={styles.input} />
+        <input type="file" name="image" className={styles.input} />
+        <select name="sinif" className={styles.select}>
+          <option value="">Sınıf Düzeyi Seçin</option>
+          <option value="s9">S9</option>
+          <option value="s10">S10</option>
+          <option value="s11">S11</option>
+          <option value="s12">S12</option>
+        </select>
+        <button type="submit" className={styles.button}>Submit</button>
+      </form>
     </>
   );
-  return handleSubmit;
 }
+
+

@@ -25,7 +25,7 @@ export default function TopNotesPage() {
   useEffect(() => {
     const fetchTopNotes = async () => {
       try {
-        const response = await fetch("/s9/api/notes");
+        const response = await fetch("/s12/api/notes");
 
         if (!response.ok) {
           throw new Error("API response was not ok");

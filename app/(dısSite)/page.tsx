@@ -1,9 +1,20 @@
 import Image from "next/image";
+import "../styles/globals.css";
 
 export default async function Page() {
   return (
     <div className="responsive-container">
       <div id="content" className="responsive-content">
+        <div id="logo">
+        <Image
+            alt="logo"
+            src="/logo.png"
+            id="logo"
+            className="logo"
+            width={1000}
+            height={1000}
+          />
+        </div>
         <Image
           src="/anasayfaBg.png"
           alt="logo"
@@ -18,24 +29,7 @@ export default async function Page() {
             left: "0",
           }}
         />
-        <div id="logo" className="responsive-logo">
-          <Image
-            alt="logo"
-            src="/logo.png"
-            width={1000}
-            height={1000}
-            style={{
-              width: "20vw",
-              height: "20vw",
-              position: "absolute",
-              top: "auto",
-              right: "21vw",
-              transform: "translate(50%, -50%)",
-              mixBlendMode: "multiply",
-            }}
-          />
-        </div>
-        <p className="responsive-text">
+        <p className="responsive-text" id="text1">
           Videolar ve PDF’ler ile desteklenen Tahir Biyoloji olarak amacımız
           öğrencilerimize biyolojiyi sevdirmektir
         </p>
