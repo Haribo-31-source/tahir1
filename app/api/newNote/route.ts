@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { writeFile } from "fs/promises";
 import { join } from "path";
-import { Category, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
 const db = new PrismaClient();
 
@@ -10,7 +10,6 @@ export async function POST(req: NextRequest) {
     const formData = await req.formData();
     
     const FormNote = formData.get("name") as string;
-    const FormCategory = formData.get("category") as Category;
     const FormDescription = formData.get("description") as string;
     const sinif = formData.get("sinif") as string;
 
@@ -33,7 +32,7 @@ export async function POST(req: NextRequest) {
       await db.s9.create({
         data: {
           name: FormNote,
-          category: FormCategory,
+          category: "NOTE",
           description: FormDescription,
           imageUrl: imageUrl, // Veritabanına kaydedilen resim URL'si
         },
@@ -42,7 +41,7 @@ export async function POST(req: NextRequest) {
       await db.s10.create({
         data: {
           name: FormNote,
-          category: FormCategory,
+          category: "NOTE",
           description: FormDescription,
           imageUrl: imageUrl, // Veritabanına kaydedilen resim URL'si
         },
@@ -51,7 +50,7 @@ export async function POST(req: NextRequest) {
       await db.s11.create({
         data: {
           name: FormNote,
-          category: FormCategory,
+          category: "NOTE",
           description: FormDescription,
           imageUrl: imageUrl, // Veritabanına kaydedilen resim URL'si
         },});
@@ -59,7 +58,7 @@ export async function POST(req: NextRequest) {
         await db.s12.create({
           data: {
             name: FormNote,
-            category: FormCategory,
+            category: "NOTE",
             description: FormDescription,
             imageUrl: imageUrl, // Veritabanına kaydedilen resim URL'si
           },});
